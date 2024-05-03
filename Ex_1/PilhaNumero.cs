@@ -148,5 +148,22 @@ namespace Ex_1
             } while (aux != null);
             Console.WriteLine("\nQuantidade de pares: " + qtdPar);
         }
+
+        public void ImprimirImpares()
+        {
+            Numero aux = this.topo;
+            int qtdImpar = 0;
+            do
+            {
+                if (aux.getNumero() % 2 != 0)
+                {
+                    Console.Write(aux.getNumero() + " ");
+                    qtdImpar++;
+                }
+
+                aux = aux.getAnterior();
+            } while (aux != null);
+            Console.WriteLine("\nQuantidade de pares: " + qtdImpar);
+        }
     }
 }

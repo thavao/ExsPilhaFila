@@ -20,7 +20,16 @@ namespace Ex_1
     {
         static void Main(string[] args)
         {
-
+            PilhaNumero MontarPilha()
+            {
+                PilhaNumero novaPilha = new PilhaNumero();
+                int tamanho = new Random().Next(1, 30);
+                for (int i = 0; i < tamanho; i++)
+                {
+                    novaPilha.Push(new Numero(new Random().Next(1, 200)));
+                }
+                return novaPilha;
+            }
             void MaiorMenorMedia(PilhaNumero p)
             {
                 Console.WriteLine("Maior:" + p.getMaior());
@@ -44,31 +53,27 @@ namespace Ex_1
             }
 
 
-            PilhaNumero pilha1 = new PilhaNumero();
-            Numero n1 = new(1);
-            Numero n2 = new(3);
-            Numero n3 = new(7);
-            Numero n4 = new(8);
+            PilhaNumero p1 = MontarPilha();
+            PilhaNumero p2 = MontarPilha();
+
 
             Console.WriteLine("Pilha 1");
-            pilha1.Push(n4);
-            pilha1.Push(n3);
-            pilha1.Push(n2);
-            pilha1.Push(n1);
 
-            pilha1.ImprimirPilha();
-            MaiorMenorMedia(pilha1);
 
-            Console.WriteLine(pilha1.getTamanho());
-            pilha1.ImprimirPares();
+            p1.ImprimirPilha();
+            MaiorMenorMedia(p1);
 
-            //pilha1.Pop();
-            PilhaNumero pilha1Invertida = pilha1.InverterPilha();
+            Console.WriteLine(p1.getTamanho());
+            p1.ImprimirPares();
+            p1.ImprimirImpares();
+
+            p1.Pop();
+            PilhaNumero p1Invertida = p1.InverterPilha();
 
             Console.WriteLine("Pilha 1 invertida");
-            pilha1Invertida.ImprimirPilha();
-            MaiorMenorMedia(pilha1Invertida);
-            Console.WriteLine(pilha1Invertida.getTamanho());
+            p1Invertida.ImprimirPilha();
+            MaiorMenorMedia(p1Invertida);
+            Console.WriteLine(p1Invertida.getTamanho());
 
 
 
