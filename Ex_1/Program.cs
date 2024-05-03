@@ -20,6 +20,7 @@ namespace Ex_1
     {
         static void Main(string[] args)
         {
+            int opcao;
             PilhaNumero MontarPilha()
             {
                 PilhaNumero novaPilha = new PilhaNumero();
@@ -51,32 +52,96 @@ namespace Ex_1
                     Console.WriteLine("Pilha 2 maior");
                 }
             }
+            void ImprimirPilhaInvertida(PilhaNumero p)
+            {
+                PilhaNumero pilhaInvertida = p.InverterPilha();
 
+                pilhaInvertida.ImprimirPilha();
+            }
+            void ParesImpares(PilhaNumero p)
+            {
+                Console.Write("Pares: ");
+                p.ImprimirPares();
+
+                Console.Write("Impares: ");
+                p.ImprimirImpares();
+            }
 
             PilhaNumero p1 = MontarPilha();
             PilhaNumero p2 = MontarPilha();
 
 
-            Console.WriteLine("Pilha 1");
+            while (true)
+            {
 
+                Console.WriteLine("\n\nSelecione uma opção");
 
-            p1.ImprimirPilha();
-            MaiorMenorMedia(p1);
+                Console.WriteLine("1 - Imprimir Pilha 1");
+                Console.WriteLine("2 - Imprimir Pilha 2");
+                Console.WriteLine("3 - Retirar item da Pilha 1");
+                Console.WriteLine("4 - Retirar item da Pilha 2");
+                Console.WriteLine("5 - Comparar pilhas");
+                Console.WriteLine("6 - Ver Menor, Maior e Média das Pilhas");
+                Console.WriteLine("7 - Ver Pare e Impares de cada Pilha");
+                Console.WriteLine("8 - Inverter Pilha 1");
+                Console.WriteLine("9 - Inverter Pilha 2");
+                Console.Write("Opção: < >\b\b");
+                opcao = int.Parse(Console.ReadLine());
+                Console.WriteLine("\n");
+                switch (opcao)
+                {
+                    case 1:
+                        p1.ImprimirPilha();
+                        break;
+                    case 2:
+                        p2.ImprimirPilha();
+                        break;
+                    case 3:
+                        p1.Pop();
+                        Console.WriteLine("1 item removido...");
+                        break;
+                    case 4:
+                        p2.Pop();
+                        Console.WriteLine("1 item removido...");
+                        break;
+                    case 5:
+                        CompararPilhas(p1, p2);
+                        break;
+                    case 6:
+                        Console.WriteLine("\nPilha 1");
+                        MaiorMenorMedia(p1);
 
-            Console.WriteLine(p1.getTamanho());
-            p1.ImprimirPares();
-            p1.ImprimirImpares();
+                        Console.WriteLine("\nPilha 2");
+                        MaiorMenorMedia(p2);
+                        break;
+                    case 7:
+                        Console.WriteLine("\n\nPilha 1");
+                        ParesImpares(p1);
+                        Console.WriteLine("\n\nPilha 2");
+                        ParesImpares(p2);
+                        break;
+                    case 8:
+                        Console.WriteLine("Pilha 1 invertida");
+                        ImprimirPilhaInvertida(p1);
+                        break;
+                    case 9:
+                        Console.WriteLine("Pilha 2 invertida");
+                        ImprimirPilhaInvertida(p2);
+                        break;
+                    case 0:
+                        Console.WriteLine("Saindo...");
+                        Console.ReadLine();
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida...");
+                        break;
+                }
 
-            p1.Pop();
-            PilhaNumero p1Invertida = p1.InverterPilha();
-
-            Console.WriteLine("Pilha 1 invertida");
-            p1Invertida.ImprimirPilha();
-            MaiorMenorMedia(p1Invertida);
-            Console.WriteLine(p1Invertida.getTamanho());
-
-
-
+                Console.WriteLine("\nPressione Enter para continuar...");
+                Console.ReadLine();
+                Console.Clear();
+            }
         }
     }
 }

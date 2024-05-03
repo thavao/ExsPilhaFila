@@ -163,7 +163,7 @@ namespace Ex_1
 
                 aux = aux.getAnterior();
             } while (aux != null);
-            Console.WriteLine("\nQuantidade de pares: " + qtdImpar);
+            Console.WriteLine("\nQuantidade de impares: " + qtdImpar);
         }
     }
 }
