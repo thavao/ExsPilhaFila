@@ -21,13 +21,19 @@ namespace Ex_1
         static void Main(string[] args)
         {
 
+            void MaiorMenorMedia(PilhaNumero p)
+            {
+                Console.WriteLine("Maior:" + p.getMaior());
+                Console.WriteLine("Menor:" + p.getMenor());
+                Console.WriteLine("Media:" + p.getMedia());
+            }
             void CompararPilhas(PilhaNumero p1, PilhaNumero p2)
             {
-                if(p1.getTamanho() == p2.getTamanho())
+                if (p1.getTamanho() == p2.getTamanho())
                 {
                     Console.WriteLine("As pilhas são iguais");
                 }
-                else if(p1.getTamanho() > p2.getTamanho())
+                else if (p1.getTamanho() > p2.getTamanho())
                 {
                     Console.WriteLine("Pilha 1 maior");
                 }
@@ -36,18 +42,33 @@ namespace Ex_1
                     Console.WriteLine("Pilha 2 maior");
                 }
             }
+
+
             PilhaNumero pilha1 = new PilhaNumero();
             Numero n1 = new(1);
             Numero n2 = new(3);
             Numero n3 = new(7);
             Numero n4 = new(8);
 
+            Console.WriteLine("Pilha 1");
             pilha1.Push(n4);
             pilha1.Push(n3);
             pilha1.Push(n2);
             pilha1.Push(n1);
-            pilha1.Pop();
+
+            pilha1.ImprimirPilha();
+            MaiorMenorMedia(pilha1);
+
             Console.WriteLine(pilha1.getTamanho());
+
+            //pilha1.Pop();
+            PilhaNumero pilha1Invertida = pilha1.InverterPilha();
+
+            Console.WriteLine("Pilha 1 invertida");
+            pilha1Invertida.ImprimirPilha();
+            MaiorMenorMedia(pilha1Invertida);
+            Console.WriteLine(pilha1Invertida.getTamanho());
+
 
 
         }
