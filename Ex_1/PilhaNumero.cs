@@ -123,13 +123,30 @@ namespace Ex_1
                 Numero aux = topo;
                 do
                 {
-                    novaPilha.Push(new (aux.getNumero()));
+                    novaPilha.Push(new(aux.getNumero()));
                     aux = aux.getAnterior();
                 } while (aux != null);
 
 
             }
             return novaPilha;
+        }
+
+        public void ImprimirPares()
+        {
+            Numero aux = this.topo;
+            int qtdPar = 0;
+            do
+            {
+                if (aux.getNumero() % 2 == 0)
+                {
+                    Console.Write(aux.getNumero() + " ");
+                    qtdPar++;
+                }
+
+                aux = aux.getAnterior();
+            } while (aux != null);
+            Console.WriteLine("\nQuantidade de pares: " + qtdPar);
         }
     }
 }

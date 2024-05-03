@@ -60,6 +60,7 @@ namespace Ex_1
             MaiorMenorMedia(pilha1);
 
             Console.WriteLine(pilha1.getTamanho());
+            pilha1.ImprimirPares();
 
             //pilha1.Pop();
             PilhaNumero pilha1Invertida = pilha1.InverterPilha();
