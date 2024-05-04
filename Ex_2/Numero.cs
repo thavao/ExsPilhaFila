@@ -24,7 +24,7 @@ namespace Ex_2
         {
             return proximo;
         }
-        public int getNumero()
+        public int getValor()
         {
             return valor;
         }
